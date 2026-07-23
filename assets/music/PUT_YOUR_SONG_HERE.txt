@@ -1,0 +1,1 @@
+วางไฟล์เพลงชื่อ song.mp3 ไว้ที่นี่ (หรือแก้ path ใน script.js -> CONFIG.musicSrc)

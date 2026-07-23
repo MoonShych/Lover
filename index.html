@@ -1,0 +1,158 @@
+<!DOCTYPE html>
+<html lang="th">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
+<title>บอกรักเธอ 💖</title>
+<meta name="theme-color" content="#FF4F9A">
+<link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<div id="app">
+
+  <!-- ============== SPLASH ============== -->
+  <section id="screen-splash" class="screen active">
+    <div class="fx-layer" id="splash-fx"></div>
+    <div class="splash-heart heartbeat glow-pulse">❤️</div>
+    <div class="splash-title fade-in">กำลังเตรียมความรัก...</div>
+    <div class="loading-dots"><span></span><span></span><span></span></div>
+  </section>
+
+  <!-- ============== PASSWORD ============== -->
+  <section id="screen-password" class="screen">
+    <div class="fx-layer" id="password-fx"></div>
+    <div class="password-card glass-card pop-in">
+      <div class="password-icon">🔒</div>
+      <div class="password-title">ใส่รหัสผ่าน</div>
+      <div class="password-hint" id="password-hint"></div>
+      <div class="password-input-wrap">
+        <input type="password" id="password-input" inputmode="numeric" placeholder="รหัสผ่าน" maxlength="10" autocomplete="off">
+      </div>
+      <div class="password-error" id="password-error"></div>
+      <button class="btn-primary" id="btn-unlock" style="width:100%;">ปลดล็อก 💖</button>
+    </div>
+  </section>
+
+  <!-- ============== LOADING ANIMATION ============== -->
+  <section id="screen-loading" class="screen">
+    <canvas id="loading-canvas"></canvas>
+    <div class="loading-flash" id="loading-flash"></div>
+    <div class="loading-caption" id="loading-caption">กำลังพาเธอไปสู่โลกของเรา...</div>
+  </section>
+
+  <!-- ============== ONE PAGE WEBSITE ============== -->
+  <main id="screen-main" class="screen">
+    <div id="scroll-container" class="scroll-container no-scrollbar">
+
+      <!-- SECTION 1: HERO -->
+      <section class="page-section" id="sec-hero">
+        <div class="fx-layer" id="hero-fx"></div>
+        <div class="hero-content">
+          <p class="hero-eyebrow reveal">Welcome to Our Story</p>
+          <h1 class="hero-title reveal" id="hero-title">Welcome to Our Story ❤️</h1>
+          <p class="hero-name reveal" id="hero-name"></p>
+          <p class="hero-date reveal" id="hero-date"></p>
+        </div>
+        <button class="scroll-down-btn reveal" id="btn-scroll-down" aria-label="เลื่อนลง">
+          <span class="chevron"></span>
+        </button>
+      </section>
+
+      <!-- SECTION 2: OUR STORY -->
+      <section class="page-section" id="sec-story">
+        <div class="section-inner">
+          <div class="section-header">
+            <p class="eyebrow reveal">Our Story</p>
+            <h2 class="reveal">เรื่องราวของเรา</h2>
+          </div>
+          <div class="timeline" id="timeline-list"></div>
+        </div>
+      </section>
+
+      <!-- SECTION 3: GALLERY -->
+      <section class="page-section" id="sec-gallery">
+        <div class="section-inner">
+          <div class="section-header">
+            <p class="eyebrow reveal">Gallery</p>
+            <h2 class="reveal">คลังความทรงจำ</h2>
+          </div>
+          <div class="gallery-grid" id="gallery-grid"></div>
+        </div>
+      </section>
+
+      <!-- SECTION 4: LOVE LETTER -->
+      <section class="page-section" id="sec-letter">
+        <div class="section-inner">
+          <div class="section-header">
+            <p class="eyebrow reveal">Love Letter</p>
+            <h2 class="reveal" id="letter-title-header">จดหมายถึงเธอ</h2>
+          </div>
+          <div class="letter-paper reveal">
+            <div class="letter-heading" id="letter-heading"></div>
+            <div class="letter-body" id="letter-body"></div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 5: RELATIONSHIP TIMER -->
+      <section class="page-section" id="sec-timer">
+        <div class="section-inner">
+          <div class="section-header">
+            <p class="eyebrow reveal">Together Since</p>
+            <h2 class="reveal">เรารักกันมาแล้ว</h2>
+          </div>
+          <div class="timer-card glass-card reveal">
+            <div class="timer-heart heartbeat">💗</div>
+            <div class="timer-grid">
+              <div class="timer-unit"><div class="timer-value glow-pulse" id="t-months">0</div><div class="timer-label">เดือน</div></div>
+              <div class="timer-unit"><div class="timer-value glow-pulse" id="t-days">0</div><div class="timer-label">วัน</div></div>
+              <div class="timer-unit"><div class="timer-value glow-pulse" id="t-hours">0</div><div class="timer-label">ชม.</div></div>
+              <div class="timer-unit"><div class="timer-value glow-pulse" id="t-mins">0</div><div class="timer-label">นาที</div></div>
+              <div class="timer-unit"><div class="timer-value glow-pulse" id="t-secs">0</div><div class="timer-label">วินาที</div></div>
+            </div>
+          </div>
+        </div>
+      </section>
+
+      <!-- SECTION 6: FINAL -->
+      <section class="page-section" id="sec-final">
+        <div class="fx-layer" id="final-fx"></div>
+        <div class="final-content">
+          <div class="final-heart heartbeat glow-pulse">💖</div>
+          <h2 class="final-message reveal" id="final-message"></h2>
+          <button class="btn-primary btn-final" id="btn-final">💗 รักเธอที่สุด</button>
+          <p class="final-thanks" id="final-thanks"></p>
+        </div>
+      </section>
+
+    </div>
+
+    <!-- Floating Music Controller -->
+    <div class="music-controller glass-card" id="music-controller">
+      <div class="music-art" id="music-art">🎵</div>
+      <div class="music-info">
+        <div class="music-name" id="music-name"></div>
+        <div class="music-progress-wrap"><div class="music-progress-bar" id="music-progress"></div></div>
+      </div>
+      <button class="music-btn-small" id="btn-music-toggle">▶</button>
+      <button class="music-btn-small" id="btn-music-mute">🔊</button>
+      <audio id="bg-audio" preload="none" loop></audio>
+    </div>
+  </main>
+
+  <!-- Lightbox for gallery -->
+  <div class="lightbox" id="lightbox">
+    <button class="lightbox-close" id="lightbox-close">✕</button>
+    <div class="lightbox-img-wrap" id="lightbox-img-wrap"></div>
+    <div class="lightbox-caption" id="lightbox-caption"></div>
+  </div>
+
+  <!-- Explosion / confetti overlay canvas -->
+  <canvas id="fx-overlay" class="fx-canvas"></canvas>
+
+</div>
+
+<script src="script.js"></script>
+</body>
+</html>
