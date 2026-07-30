@@ -1,158 +1,171 @@
 <!DOCTYPE html>
 <html lang="th">
 <head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no, viewport-fit=cover">
-<title>บอกรักเธอ 💖</title>
-<meta name="theme-color" content="#FF4F9A">
-<link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0, viewport-fit=cover, maximum-scale=1.0, user-scalable=no" />
+  <title>สำหรับอ้วนคนเดียว 🤍</title>
+
+  <!-- ฟอนต์ภาษาไทย: Charm สำหรับหัวข้อโรแมนติก / Kanit สำหรับเนื้อหาที่อ่านง่าย -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Charm:wght@400;700&family=Kanit:wght@200;300;400;500;600&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css" />
 </head>
 <body>
 
-<div id="app">
-
-  <!-- ============== SPLASH ============== -->
-  <section id="screen-splash" class="screen active">
-    <div class="fx-layer" id="splash-fx"></div>
-    <div class="splash-heart heartbeat glow-pulse">❤️</div>
-    <div class="splash-title fade-in">กำลังเตรียมความรัก...</div>
-    <div class="loading-dots"><span></span><span></span><span></span></div>
-  </section>
-
-  <!-- ============== PASSWORD ============== -->
-  <section id="screen-password" class="screen">
-    <div class="fx-layer" id="password-fx"></div>
-    <div class="password-card glass-card pop-in">
-      <div class="password-icon">🔒</div>
-      <div class="password-title">ใส่รหัสผ่าน</div>
-      <div class="password-hint" id="password-hint"></div>
-      <div class="password-input-wrap">
-        <input type="password" id="password-input" inputmode="numeric" placeholder="รหัสผ่าน" maxlength="10" autocomplete="off">
-      </div>
-      <div class="password-error" id="password-error"></div>
-      <button class="btn-primary" id="btn-unlock" style="width:100%;">ปลดล็อก 💖</button>
-    </div>
-  </section>
-
-  <!-- ============== LOADING ANIMATION ============== -->
-  <section id="screen-loading" class="screen">
-    <canvas id="loading-canvas"></canvas>
-    <div class="loading-flash" id="loading-flash"></div>
-    <div class="loading-caption" id="loading-caption">กำลังพาเธอไปสู่โลกของเรา...</div>
-  </section>
-
-  <!-- ============== ONE PAGE WEBSITE ============== -->
-  <main id="screen-main" class="screen">
-    <div id="scroll-container" class="scroll-container no-scrollbar">
-
-      <!-- SECTION 1: HERO -->
-      <section class="page-section" id="sec-hero">
-        <div class="fx-layer" id="hero-fx"></div>
-        <div class="hero-content">
-          <p class="hero-eyebrow reveal">Welcome to Our Story</p>
-          <h1 class="hero-title reveal" id="hero-title">Welcome to Our Story ❤️</h1>
-          <p class="hero-name reveal" id="hero-name"></p>
-          <p class="hero-date reveal" id="hero-date"></p>
-        </div>
-        <button class="scroll-down-btn reveal" id="btn-scroll-down" aria-label="เลื่อนลง">
-          <span class="chevron"></span>
-        </button>
-      </section>
-
-      <!-- SECTION 2: OUR STORY -->
-      <section class="page-section" id="sec-story">
-        <div class="section-inner">
-          <div class="section-header">
-            <p class="eyebrow reveal">Our Story</p>
-            <h2 class="reveal">เรื่องราวของเรา</h2>
-          </div>
-          <div class="timeline" id="timeline-list"></div>
-        </div>
-      </section>
-
-      <!-- SECTION 3: GALLERY -->
-      <section class="page-section" id="sec-gallery">
-        <div class="section-inner">
-          <div class="section-header">
-            <p class="eyebrow reveal">Gallery</p>
-            <h2 class="reveal">คลังความทรงจำ</h2>
-          </div>
-          <div class="gallery-grid" id="gallery-grid"></div>
-        </div>
-      </section>
-
-      <!-- SECTION 4: LOVE LETTER -->
-      <section class="page-section" id="sec-letter">
-        <div class="section-inner">
-          <div class="section-header">
-            <p class="eyebrow reveal">Love Letter</p>
-            <h2 class="reveal" id="letter-title-header">จดหมายถึงเธอ</h2>
-          </div>
-          <div class="letter-paper reveal">
-            <div class="letter-heading" id="letter-heading"></div>
-            <div class="letter-body" id="letter-body"></div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 5: RELATIONSHIP TIMER -->
-      <section class="page-section" id="sec-timer">
-        <div class="section-inner">
-          <div class="section-header">
-            <p class="eyebrow reveal">Together Since</p>
-            <h2 class="reveal">เรารักกันมาแล้ว</h2>
-          </div>
-          <div class="timer-card glass-card reveal">
-            <div class="timer-heart heartbeat">💗</div>
-            <div class="timer-grid">
-              <div class="timer-unit"><div class="timer-value glow-pulse" id="t-months">0</div><div class="timer-label">เดือน</div></div>
-              <div class="timer-unit"><div class="timer-value glow-pulse" id="t-days">0</div><div class="timer-label">วัน</div></div>
-              <div class="timer-unit"><div class="timer-value glow-pulse" id="t-hours">0</div><div class="timer-label">ชม.</div></div>
-              <div class="timer-unit"><div class="timer-value glow-pulse" id="t-mins">0</div><div class="timer-label">นาที</div></div>
-              <div class="timer-unit"><div class="timer-value glow-pulse" id="t-secs">0</div><div class="timer-label">วินาที</div></div>
-            </div>
-          </div>
-        </div>
-      </section>
-
-      <!-- SECTION 6: FINAL -->
-      <section class="page-section" id="sec-final">
-        <div class="fx-layer" id="final-fx"></div>
-        <div class="final-content">
-          <div class="final-heart heartbeat glow-pulse">💖</div>
-          <h2 class="final-message reveal" id="final-message"></h2>
-          <button class="btn-primary btn-final" id="btn-final">💗 รักเธอที่สุด</button>
-          <p class="final-thanks" id="final-thanks"></p>
-        </div>
-      </section>
-
-    </div>
-
-    <!-- Floating Music Controller -->
-    <div class="music-controller glass-card" id="music-controller">
-      <div class="music-art" id="music-art">🎵</div>
-      <div class="music-info">
-        <div class="music-name" id="music-name"></div>
-        <div class="music-progress-wrap"><div class="music-progress-bar" id="music-progress"></div></div>
-      </div>
-      <button class="music-btn-small" id="btn-music-toggle">▶</button>
-      <button class="music-btn-small" id="btn-music-mute">🔊</button>
-      <audio id="bg-audio" preload="none" loop></audio>
-    </div>
-  </main>
-
-  <!-- Lightbox for gallery -->
-  <div class="lightbox" id="lightbox">
-    <button class="lightbox-close" id="lightbox-close">✕</button>
-    <div class="lightbox-img-wrap" id="lightbox-img-wrap"></div>
-    <div class="lightbox-caption" id="lightbox-caption"></div>
+  <!-- ================= ผีเสื้อพื้นหลัง (ใช้ร่วมกันทุกหน้า) ================= -->
+  <!-- ชั้นนี้ลอยอยู่เหนือทุกหน้า ใช้สำหรับผีเสื้อบินอิสระ + ฉากทรานซิชันหัวใจ -->
+  <div id="butterfly-stage" aria-hidden="true">
+    <div id="butterfly-group"></div>
   </div>
 
-  <!-- Explosion / confetti overlay canvas -->
-  <canvas id="fx-overlay" class="fx-canvas"></canvas>
+  <!-- เทมเพลต SVG ผีเสื้อ (ใช้ clone ด้วย JS ไม่แสดงผลตรงนี้) -->
+  <svg width="0" height="0" style="position:absolute">
+    <defs>
+      <symbol id="butterfly-svg" viewBox="0 0 100 80">
+        <g class="wing wing-left">
+          <path d="M50 40 C 30 5, 0 5, 5 30 C 8 50, 30 55, 50 40 Z"/>
+        </g>
+        <g class="wing wing-right">
+          <path d="M50 40 C 70 5, 100 5, 95 30 C 92 50, 70 55, 50 40 Z"/>
+        </g>
+        <ellipse class="body" cx="50" cy="40" rx="3" ry="16"/>
+      </symbol>
+    </defs>
+  </svg>
 
-</div>
+  <!-- ================= หน้า 1: Welcome ================= -->
+  <section class="page" id="page-1" data-page="1">
+    <div class="page-inner welcome-inner">
+      <p class="eyebrow">🤍</p>
+      <h1 class="title-script">สำหรับอ้วนคนเดียว 🤍</h1>
+      <button class="btn btn-primary" id="btn-open-gift">เปิดของขวัญ</button>
+    </div>
+  </section>
 
-<script src="script.js"></script>
+  <!-- ================= หน้า 2: Password ================= -->
+  <section class="page" id="page-2" data-page="2">
+    <div class="page-inner password-inner">
+      <h2 class="title-script small">ใส่วันครบรอบของเรา</h2>
+      <p class="hint">วัน / เดือน / ปี (เช่น 011025)</p>
+
+      <div class="password-box" id="password-box">
+        <input
+          type="tel"
+          inputmode="numeric"
+          maxlength="6"
+          id="password-input"
+          class="password-input"
+          placeholder="• • • • • •"
+          autocomplete="off"
+        />
+      </div>
+
+      <button class="btn btn-primary" id="btn-unlock">ยืนยัน</button>
+      <p class="error-msg" id="error-msg">ยังไม่ถูกน้า 🤍</p>
+    </div>
+  </section>
+
+  <!-- ================= หน้า 3: ความทรงจำของเรา ================= -->
+  <section class="page" id="page-3" data-page="3">
+    <div class="page-inner memory-inner">
+      <h2 class="title-script">เราอยู่ด้วยกันมา</h2>
+
+      <div class="countdown" id="countdown">
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-days">0</span>
+          <span class="countdown-label">วัน</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-hours">0</span>
+          <span class="countdown-label">ชั่วโมง</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-minutes">0</span>
+          <span class="countdown-label">นาที</span>
+        </div>
+        <div class="countdown-unit">
+          <span class="countdown-number" id="cd-seconds">0</span>
+          <span class="countdown-label">วินาที</span>
+        </div>
+      </div>
+
+      <p class="subtext">ทุกวินาทีมีความหมายสำหรับเค้า</p>
+      <button class="btn btn-ghost btn-next" data-next="4">ต่อไป →</button>
+    </div>
+  </section>
+
+  <!-- ================= หน้า 4: Photo Gallery ================= -->
+  <section class="page" id="page-4" data-page="4">
+    <div class="page-inner gallery-inner">
+      <h2 class="title-script small">รูปอ้วน</h2>
+
+      <div class="gallery-frame">
+        <div class="gallery-track" id="gallery-track">
+          <!-- รูปภาพจะถูกสร้างด้วย JS จาก CONFIG.photos -->
+        </div>
+        <button class="gallery-arrow gallery-arrow-left" id="gallery-prev" aria-label="รูปก่อนหน้า">‹</button>
+        <button class="gallery-arrow gallery-arrow-right" id="gallery-next" aria-label="รูปถัดไป">›</button>
+      </div>
+
+      <div class="gallery-dots" id="gallery-dots"></div>
+
+      <button class="btn btn-ghost btn-next" data-next="5">ต่อไป →</button>
+    </div>
+  </section>
+
+  <!-- ================= หน้า 5: Love Letter ================= -->
+  <section class="page" id="page-5" data-page="5">
+    <div class="page-inner letter-inner">
+      <h2 class="title-script small">จดหมายจากใจ</h2>
+
+      <div class="envelope-wrap" id="envelope-wrap">
+        <div class="envelope" id="envelope">
+          <div class="envelope-back"></div>
+          <div class="paper" id="letter-paper">
+            <p class="letter-text" id="letter-text"></p>
+          </div>
+          <div class="envelope-flap" id="envelope-flap">
+            <div class="wax-seal" id="wax-seal">🤍</div>
+          </div>
+          <div class="envelope-front"></div>
+        </div>
+      </div>
+
+      <p class="hint" id="envelope-hint">แตะที่ซองจดหมาย</p>
+      <button class="btn btn-ghost btn-next hidden" id="btn-after-letter" data-next="6">ต่อไป →</button>
+    </div>
+  </section>
+
+  <!-- ================= หน้า 6: Thank You ================= -->
+  <section class="page" id="page-6" data-page="6">
+    <div class="page-inner thankyou-inner">
+      <h2 class="title-script">ขอบคุณที่เข้ามาในชีวิตเค้า</h2>
+      <button class="btn btn-primary" id="btn-final-surprise">กดตรงนี้สิ 🤍</button>
+    </div>
+  </section>
+
+  <!-- ================= หน้า 7: Final Surprise ================= -->
+  <section class="page" id="page-7" data-page="7">
+    <div class="page-inner final-inner">
+      <div class="final-heart-text hidden" id="final-heart-text">รักอ้วนที่สุด ❤️</div>
+
+      <div class="couple-photo-wrap hidden" id="couple-photo-wrap">
+        <img src="assets/images/3.png" class="couple-photo" id="couple-photo" />
+      </div>
+
+      <div class="final-text hidden" id="final-text">
+        <p>สุขสันต์วันครบรอบนะ<span id="final-name">อ้วน</span></p>
+        <p>ขอบคุณที่อยู่กับเค้ามาตลอด</p>
+        <p class="final-love">รักอ้วนที่สุด</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- เสียงพื้นหลัง (เพลง) เริ่มเล่นตอนเข้าหน้า 3 -->
+  <audio id="bg-music" src="assets/music/love-song.mp3" loop preload="auto"></audio>
+
+  <script src="script.js"></script>
 </body>
 </html>
